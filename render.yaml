@@ -12,7 +12,7 @@ services:
       - key: OPENROUTER_API_KEY
         sync: false
       - key: OPENROUTER_MODEL
-        value: perplexity/sonar-small-online
+        sync: false
       - key: HTTP_REFERER
         value: https://your-domain.com
       # External search disabled; browsing is handled by model
