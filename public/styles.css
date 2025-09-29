@@ -66,6 +66,25 @@ body {
 .feature { padding: 18px; border-radius: 16px; border: 1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); }
 .feature .icon { font-size: 22px; margin-bottom: 8px; }
 
+/* Get started */
+.getstarted { margin-top: 50px; }
+.form { display: grid; gap: 14px; }
+.form-grid { display: grid; grid-template-columns: 300px 1fr; gap: 16px; }
+.form-row { display: grid; gap: 8px; }
+.form-row label { color: var(--muted); font-size: 13px; font-weight: 600; }
+.form-row input, .form-row select { 
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.form-actions { display: flex; align-items: center; gap: 12px; margin-top: 6px; }
+.status { color: var(--muted); font-size: 14px; }
+.hint { color: var(--muted); font-size: 12px; margin-top: 6px; }
+.result { margin-top: 18px; padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: rgba(255,255,255,0.03); white-space: pre-wrap; }
+.hidden { display: none; }
+
 .section.alt { margin-top: 30px; }
 .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .steps li { display: grid; grid-template-columns: 28px 1fr; align-items: center; gap: 10px; border: 1px solid var(--border); padding: 12px 14px; border-radius: 12px; background: rgba(255,255,255,0.03); }
@@ -77,6 +96,7 @@ body {
 @media (max-width: 980px) {
   .hero { grid-template-columns: 1fr; padding-top: 70px; }
   .grid { grid-template-columns: repeat(2, 1fr); }
+  .form-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 640px) {
   .hero-content h1 { font-size: 40px; }

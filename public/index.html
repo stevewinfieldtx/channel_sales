@@ -19,7 +19,7 @@
     <nav>
       <a href="#features">Features</a>
       <a href="#how">How it works</a>
-      <a href="#cta" class="btn btn-ghost">Get started</a>
+      <a href="#get-started" class="btn btn-ghost">Get started</a>
     </nav>
   </header>
 
@@ -28,7 +28,7 @@
       <h1>AI GTM Co‑Pilot for B2B</h1>
       <p class="sub">Find high‑fit industries, prioritize sub‑segments, and launch targeted partner motions in minutes.</p>
       <div class="cta-group" id="cta">
-        <a class="btn btn-primary" href="/" onclick="return openApp(event)">Launch App</a>
+        <button class="btn btn-primary" onclick="scrollToId('get-started')">Get started</button>
         <button class="btn btn-outline" onclick="scrollToId('features')">See features</button>
       </div>
       <div class="trust">
@@ -84,6 +84,40 @@
       <li><span>2</span> We analyze fit and prioritize sub‑industries using live AI.</li>
       <li><span>3</span> Get a focused plan with channels, partners, and messaging.</li>
     </ol>
+  </section>
+
+  <section class="section getstarted" id="get-started">
+    <h2>Get started free</h2>
+    <form id="start-form" class="form" onsubmit="return onStart(event)">
+      <div class="form-row">
+        <label for="input-url">Solution URL</label>
+        <input id="input-url" name="url" type="url" placeholder="https://yourproduct.com" required />
+      </div>
+      <div class="form-row">
+        <label for="select-company">Company type</label>
+        <select id="select-company" name="companyType" required>
+          <option value="Startup">Startup</option>
+          <option value="Mid-Market">Mid‑Market</option>
+          <option value="Enterprise">Enterprise</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="form-row">
+          <label for="select-industry">Industry</label>
+          <select id="select-industry" name="industry"></select>
+        </div>
+        <div class="form-row">
+          <label for="select-subindustries">Sub‑industries</label>
+          <select id="select-subindustries" name="subindustries" multiple size="6"></select>
+          <div class="hint">Tip: hold Ctrl/Cmd to select multiple</div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit" id="run-btn">Run analysis</button>
+        <span id="status" class="status"></span>
+      </div>
+    </form>
+    <div id="result" class="result hidden"></div>
   </section>
 
   <footer class="footer">
