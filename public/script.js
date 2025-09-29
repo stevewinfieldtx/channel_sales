@@ -44,7 +44,17 @@ function setResult(content) {
   const el = document.getElementById('result');
   if (!el) return;
   el.classList.remove('hidden');
-  el.textContent = typeof content === 'string' ? content : JSON.stringify(content, null, 2);
+  const text = typeof content === 'string' ? content : JSON.stringify(content, null, 2);
+  const html = window.marked ? marked.parse(text) : text;
+  el.innerHTML = window.DOMPurify ? DOMPurify.sanitize(html) : html;
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.remove('hidden');
+  setTimeout(() => t.classList.add('hidden'), 3000);
 }
 
 async function loadIndustries() {
@@ -95,12 +105,12 @@ async function onStart(e) {
       body: JSON.stringify({ url, companyType, subindustries })
     });
     if (result && result.error) {
-      setResult('Error: ' + result.error);
+      toast('Error: ' + result.error);
     } else {
       setResult(result);
     }
   } catch (err) {
-    setResult('Request failed');
+    toast('Request failed');
   } finally {
     setStatus('');
     document.getElementById('run-btn').disabled = false;
