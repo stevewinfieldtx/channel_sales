@@ -5,6 +5,7 @@ const analysisRoutes = require('./routes/analysisRoutes');
 const path = require('path');
 
 const app = express();
+const effectiveModel = process.env.OPENROUTER_MODEL || process.env.MODEL || process.env.LLM_MODEL || process.env.OPENROUTER_DEFAULT_MODEL || '';
 
 // Middleware
 app.use(cors());
@@ -25,4 +26,9 @@ app.get('/', (_req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  if (effectiveModel) {
+    console.log(`LLM model: ${effectiveModel}`);
+  } else {
+    console.log('LLM model not configured (set OPENROUTER_MODEL).');
+  }
 });
