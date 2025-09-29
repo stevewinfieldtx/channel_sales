@@ -15,4 +15,12 @@ services:
         value: anthropic/claude-3.5-sonnet
       - key: HTTP_REFERER
         value: https://your-domain.com
+      - key: ENABLE_WEB_SEARCH
+        value: "0"
+      - key: SEARCH_PROVIDER
+        value: brave
+      - key: BRAVE_API_KEY
+        sync: false
+      - key: SERPAPI_API_KEY
+        sync: false
 
