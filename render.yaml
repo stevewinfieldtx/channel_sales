@@ -12,7 +12,8 @@ services:
       - key: OPENROUTER_API_KEY
         sync: false
       - key: OPENROUTER_MODEL
-        value: anthropic/claude-3.5-sonnet
+        sync: false
       - key: HTTP_REFERER
         value: https://your-domain.com
+      # External search disabled; browsing is handled by model
 

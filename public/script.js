@@ -1,34 +1,69 @@
+<<<<<<< HEAD
 // Smooth scroll helper
+=======
+>>>>>>> c8899f8e4e3b0b8a0787a8397fe7a0b87707462a
 function scrollToId(id) {
   const el = document.getElementById(id);
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
+<<<<<<< HEAD
 // Open the app root (unused but retained for parity)
+=======
+>>>>>>> c8899f8e4e3b0b8a0787a8397fe7a0b87707462a
 function openApp(e) {
   if (e) e.preventDefault();
   window.location.href = '/';
   return false;
 }
 
+<<<<<<< HEAD
 
 // Set current year in footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // Generic fetch wrapper that returns JSON or text
+=======
+// Decorative stars
+(function makeStars() {
+  const container = document.getElementById('stars');
+  if (!container) return;
+  const count = Math.min(120, Math.floor(window.innerWidth / 10));
+  for (let i = 0; i < count; i++) {
+    const s = document.createElement('div');
+    s.className = 'star';
+    s.style.left = Math.random() * 100 + '%';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.animationDelay = (Math.random() * 3).toFixed(2) + 's';
+    s.style.opacity = (0.2 + Math.random() * 0.6).toFixed(2);
+    container.appendChild(s);
+  }
+})();
+
+// Year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// API helpers
+>>>>>>> c8899f8e4e3b0b8a0787a8397fe7a0b87707462a
 async function fetchJSON(url, options) {
   const res = await fetch(url, options);
   const text = await res.text();
   try { return JSON.parse(text); } catch { return text; }
 }
 
+<<<<<<< HEAD
 // Status bar helper
+=======
+>>>>>>> c8899f8e4e3b0b8a0787a8397fe7a0b87707462a
 function setStatus(msg) {
   const el = document.getElementById('status');
   if (el) el.textContent = msg || '';
 }
 
+<<<<<<< HEAD
 // Render result to the page and show the download button
+=======
+>>>>>>> c8899f8e4e3b0b8a0787a8397fe7a0b87707462a
 function setResult(content) {
   const el = document.getElementById('result');
   if (!el) return;
@@ -36,12 +71,17 @@ function setResult(content) {
   const text = typeof content === 'string' ? content : JSON.stringify(content, null, 2);
   const html = window.marked ? marked.parse(text) : text;
   el.innerHTML = window.DOMPurify ? DOMPurify.sanitize(html) : html;
+<<<<<<< HEAD
   // reveal PDF download button
   const pdfBtn = document.getElementById('download-pdf-btn');
   if (pdfBtn) pdfBtn.classList.remove('hidden');
 }
 
 // Toast helper for transient notifications
+=======
+}
+
+>>>>>>> c8899f8e4e3b0b8a0787a8397fe7a0b87707462a
 function toast(msg) {
   const t = document.getElementById('toast');
   if (!t) return;
@@ -50,7 +90,10 @@ function toast(msg) {
   setTimeout(() => t.classList.add('hidden'), 3000);
 }
 
+<<<<<<< HEAD
 // Load industries and subindustries from the API
+=======
+>>>>>>> c8899f8e4e3b0b8a0787a8397fe7a0b87707462a
 async function loadIndustries() {
   try {
     const data = await fetchJSON('/api/industries');
@@ -83,7 +126,10 @@ async function loadIndustries() {
   }
 }
 
+<<<<<<< HEAD
 // Handle form submission and trigger analysis
+=======
+>>>>>>> c8899f8e4e3b0b8a0787a8397fe7a0b87707462a
 async function onStart(e) {
   if (e) e.preventDefault();
   const url = document.getElementById('input-url').value.trim();
@@ -113,6 +159,7 @@ async function onStart(e) {
   return false;
 }
 
+<<<<<<< HEAD
 // Convert the result panel into a downloadable PDF
 async function downloadPDF() {
   const el = document.getElementById('result');
@@ -131,3 +178,9 @@ async function downloadPDF() {
 document.addEventListener('DOMContentLoaded', () => {
   loadIndustries();
 });
+=======
+document.addEventListener('DOMContentLoaded', () => {
+  loadIndustries();
+});
+
+>>>>>>> c8899f8e4e3b0b8a0787a8397fe7a0b87707462a
