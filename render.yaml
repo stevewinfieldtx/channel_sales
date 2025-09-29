@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: channel-sales-api
+    env: node
+    plan: free
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /api/industries
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_MODEL
+        value: anthropic/claude-3.5-sonnet
+      - key: HTTP_REFERER
+        value: https://your-domain.com
+
