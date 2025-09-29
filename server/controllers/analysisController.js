@@ -1,7 +1,6 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const { URL } = require('url');
-const { searchWeb } = require('../services/searchService');
 
 function selectModelFromEnv() {
   const candidateKeys = [
@@ -80,19 +79,7 @@ exports.startAnalysis = async (url, companyType, subindustries) => {
     // Attempt to fetch and extract site text
     const extractedText = await fetchAndExtract(url);
 
-    let sourcesNote = '';
-    if (process.env.ENABLE_WEB_SEARCH === '1' || process.env.ENABLE_WEB_SEARCH === 'true') {
-      try {
-        const domain = new URL(url.includes('://') ? url : `https://${url}`).hostname;
-        const query = `${domain} product features pricing review`; 
-        const results = await searchWeb(query, { count: 5 });
-        if (Array.isArray(results) && results.length) {
-          sourcesNote = `\n\nRecent sources (search):\n` + results.map(r => `- ${r.title} (${r.url}) — ${r.snippet}`).join('\n');
-        }
-      } catch (e) {
-        // Ignore search errors silently to avoid blocking
-      }
-    }
+    const sourcesNote = '';
 
     const sysPreamble = extractedText
       ? `You are an analyst. Use the provided extracted website text to ground your analysis. If text is thin or generic, acknowledge limitations.`

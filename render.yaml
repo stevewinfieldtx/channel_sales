@@ -12,15 +12,8 @@ services:
       - key: OPENROUTER_API_KEY
         sync: false
       - key: OPENROUTER_MODEL
-        value: anthropic/claude-3.5-sonnet
+        value: perplexity/sonar-small-online
       - key: HTTP_REFERER
         value: https://your-domain.com
-      - key: ENABLE_WEB_SEARCH
-        value: "0"
-      - key: SEARCH_PROVIDER
-        value: brave
-      - key: BRAVE_API_KEY
-        sync: false
-      - key: SERPAPI_API_KEY
-        sync: false
+      # External search disabled; browsing is handled by model
 
