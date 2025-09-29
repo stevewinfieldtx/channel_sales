@@ -1,0 +1,216 @@
+[
+  {
+    "industry": "Agriculture",
+    "subindustries": [
+      "Farming",
+      "Fishery",
+      "Forestry",
+      "Livestock",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Automotive",
+    "subindustries": [
+      "Dealerships",
+      "Manufacturing",
+      "Parts",
+      "Repair",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Banking & Financial Services",
+    "subindustries": [
+      "Fintech",
+      "Insurance",
+      "Investment Banking",
+      "Lending",
+      "Retail Banking",
+      "Venture Capital",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Construction & Engineering",
+    "subindustries": [
+      "Civil",
+      "Commercial",
+      "Residential",
+      "Specialty Trades",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Education",
+    "subindustries": [
+      "EdTech",
+      "Higher Ed",
+      "K-12",
+      "Online Learning",
+      "Training",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Energy & Utilities",
+    "subindustries": [
+      "Electric",
+      "Mining",
+      "Oil & Gas",
+      "Renewables",
+      "Water",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Healthcare & Life Sciences",
+    "subindustries": [
+      "Biotech",
+      "Clinics",
+      "Devices",
+      "Diagnostics",
+      "Hospitals",
+      "Mental Health",
+      "Pharma",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Hospitality & Travel",
+    "subindustries": [
+      "Airlines",
+      "Cruises",
+      "Hotels",
+      "Resorts",
+      "Travel Agencies",
+      "Other"
+    ]
+  },
+  {
+    "industry": "IT & Technology",
+    "subindustries": [
+      "Cybersecurity",
+      "Hardware",
+      "IT Services",
+      "Networking",
+      "SaaS",
+      "Software",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Legal & Compliance",
+    "subindustries": [
+      "Compliance Consulting",
+      "Law Firms",
+      "Legal Services",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Manufacturing",
+    "subindustries": [
+      "Chemicals",
+      "Electronics",
+      "Food & Beverage",
+      "Industrial Equipment",
+      "Textiles",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Marketing & Media",
+    "subindustries": [
+      "Advertising",
+      "Agencies",
+      "Broadcast",
+      "Digital Media",
+      "PR",
+      "Publishing",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Non-Profit & Social Services",
+    "subindustries": [
+      "Charities",
+      "Foundations",
+      "NGOs",
+      "Philanthropy",
+      "Religious Institutions",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Other",
+    "subindustries": [
+      "Custom",
+      "Not Classified",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Professional Services",
+    "subindustries": [
+      "Accounting",
+      "Consulting",
+      "Engineering",
+      "HR",
+      "Research",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Real Estate",
+    "subindustries": [
+      "Commercial",
+      "Development",
+      "Property Management",
+      "Residential",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Retail & Consumer Goods",
+    "subindustries": [
+      "E-commerce",
+      "Fashion",
+      "Grocery",
+      "Luxury Goods",
+      "Supermarkets",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Telecommunications",
+    "subindustries": [
+      "Broadband",
+      "Cable",
+      "Satellite",
+      "Wireless",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Transportation & Logistics",
+    "subindustries": [
+      "Courier",
+      "Freight",
+      "Rail",
+      "Shipping",
+      "Warehousing",
+      "Other"
+    ]
+  },
+  {
+    "industry": "Utilities",
+    "subindustries": [
+      "Power",
+      "Renewables",
+      "Waste",
+      "Water",
+      "Other"
+    ]
+  }
+]
