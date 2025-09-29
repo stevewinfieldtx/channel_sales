@@ -3,6 +3,7 @@ const router = express.Router();
 const analysisController = require('../controllers/analysisController');
 const fs = require('fs');
 const path = require('path');
+const axios = require('axios');
 
 // Default industries fallback
 const defaultIndustries = [
@@ -32,10 +33,22 @@ const defaultIndustries = [
   }
 ];
 
-async function tryReadJson(filePath) {
+function isUrl(p) {
+  return typeof p === 'string' && /^https?:\/\//i.test(p);
+}
+
+async function tryReadJson(inputPath) {
   try {
-    await fs.promises.access(filePath, fs.constants.R_OK);
-    const content = await fs.promises.readFile(filePath, 'utf8');
+    if (!inputPath) return null;
+    if (isUrl(inputPath)) {
+      const res = await axios.get(inputPath, { timeout: 10000 });
+      return res.data;
+    }
+    const absolute = path.isAbsolute(inputPath)
+      ? inputPath
+      : path.resolve(process.cwd(), inputPath);
+    await fs.promises.access(absolute, fs.constants.R_OK);
+    const content = await fs.promises.readFile(absolute, 'utf8');
     return JSON.parse(content);
   } catch (_) {
     return null;
@@ -61,11 +74,25 @@ async function loadIndustriesFromDisk() {
   return null;
 }
 
+function normalizeIndustries(raw) {
+  if (!raw) return [];
+  const arr = Array.isArray(raw) ? raw : (Array.isArray(raw.industries) ? raw.industries : []);
+  return arr.map(item => {
+    const industry = item.industry || item.Industry || item.name || item.Name || '';
+    const subs = item.subindustries || item.Subindustries || item.subIndustries || item.subs || [];
+    return {
+      industry: String(industry),
+      subindustries: Array.isArray(subs) ? subs : []
+    };
+  }).filter(x => x.industry);
+}
+
 // Get industries data
 router.get('/industries', async (_req, res) => {
   try {
     const fromDisk = await loadIndustriesFromDisk();
-    const industries = Array.isArray(fromDisk) && fromDisk.length ? fromDisk : defaultIndustries;
+    const normalized = normalizeIndustries(fromDisk);
+    const industries = normalized.length ? normalized : defaultIndustries;
     res.json(industries);
   } catch (error) {
     res.status(500).json({ error: 'Failed to load industries' });
